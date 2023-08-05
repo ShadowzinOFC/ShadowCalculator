@@ -1,3 +1,6 @@
+# Sum of Three Cubes Calculator
+# Author: ShadowzinOFC
+
 def find_closest_solution(target_sum):
     closest_diff = float('inf')
     closest_solution = None
@@ -34,29 +37,29 @@ def is_close(value1, value2, tolerance=1e-5):
     return abs(value1 - value2) < tolerance
 
 try:
-    target_sum = int(input("Digite o valor de k: "))
+    target_sum = int(input("Enter the value of k: "))
 except ValueError:
-    print("Por favor, insira um valor numérico válido.")
+    print("Please enter a valid numeric value.")
     exit()
 
 results = read_results_file("resultados.txt")
 
 if target_sum in results:
     if is_close(sum(num**3 for num in results[target_sum]), target_sum):
-        print(f"Solução exata encontrada para k = {target_sum}: {results[target_sum]}")
+        print(f"Exact solution found for k = {target_sum}: {results[target_sum]}")
     else:
-        print(f"Solução aproximada encontrada para k = {target_sum}: {results[target_sum]}")
+        print(f"Approximate solution found for k = {target_sum}: {results[target_sum]}")
 else:
     closest_solution = find_closest_solution(target_sum)
     
     if closest_solution:
         closest_value = sum(num**3 for num in closest_solution)
         if is_close(closest_value, target_sum):
-            print("A solução mais próxima é:", closest_solution)
-            print("O valor da solução mais próxima é:", closest_value)
+            print("The nearest solution is:", closest_solution)
+            print("The value of the nearest solution is:", closest_value)
             save_result_to_file("resultados.txt", target_sum, closest_solution)
         else:
-            print("Solução aproximada encontrada:", closest_solution)
-            print("O valor da solução aproximada é:", closest_value)
+            print("Approximate solution found:", closest_solution)
+            print("The value of the approximate solution is:", closest_value)
     else:
-        print("Não foram encontradas soluções dentro dos limites considerados.")
+        print("No solutions found within the specified limits.")
