@@ -14,8 +14,17 @@ A powerful calculator to find solutions for the Sum of Three Cubes problem.
 
 ## Usage
 
+This repository contains two versions of the calculator:
+
+- `calculator.py`: This version considers only positive integers for finding solutions.
+- `calculatorv2.py`: This version considers both positive and negative integers, providing a wider range of solutions.
+
+To use the calculator, follow these steps:
+
 1. Clone the repository: `git clone https://github.com/ShadowzinOFC/ShadowCalculator.git`
-2. Open the calculator: `python calculator.py`
+2. Open the desired calculator:
+   - For positive integers: `python calculator.py`
+   - For both positive and negative integers: `python calculatorv2.py`
 3. Enter the value of k to find solutions.
 
 ## License
